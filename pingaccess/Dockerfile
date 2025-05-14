@@ -24,13 +24,13 @@ ARG SHIM_TAG
 
 #################################################################################
 
-FROM ${REGISTRY}/pingcommon:${GIT_TAG}-${ARCH} as common
-FROM ${REGISTRY}/pingjvm:${JVM}-${SHIM_TAG}-${GIT_TAG}-${ARCH} as jvm
+FROM ${REGISTRY}/pingcommon-rebased:${GIT_TAG}-${ARCH} as common
+FROM ${REGISTRY}/pingjvm-rebased:${JVM}-${SHIM_TAG}-${GIT_TAG}-${ARCH} as jvm
 
 #################################################################################
 
 # Always use alpine to download product bits
-FROM ${DEPS}alpine:${LATEST_ALPINE_VERSION} as product-staging
+FROM cgr.dev/chainguard/jre:latest as product-staging
 
 # ARGS used in get-product-bits.sh RUN command
 ARG ARTIFACTORY_URL

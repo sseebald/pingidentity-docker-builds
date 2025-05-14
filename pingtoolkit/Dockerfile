@@ -25,8 +25,8 @@ ARG SHIM_TAG
 
 #################################################################################
 
-FROM ${REGISTRY}/pingcommon:${GIT_TAG}-${ARCH} as common
-FROM ${REGISTRY}/pingjvm:${JVM}-${SHIM_TAG}-${GIT_TAG}-${ARCH} as jvm
+FROM ${REGISTRY}/pingcommon-rebased:${GIT_TAG}-${ARCH} as common
+FROM ${REGISTRY}/pingjvm-rebased:${JVM}-${SHIM_TAG}-${GIT_TAG}-${ARCH} as jvm
 
 #################################################################################
 
