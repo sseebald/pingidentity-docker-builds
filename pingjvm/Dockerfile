@@ -2,7 +2,7 @@
 ARG SHIM
 ARG DEPS
 
-FROM ${DEPS}${SHIM} as jvm-staging
+FROM cgr.dev/chainguard/jdk:latest-dev as jvm-staging
 
 # Arguments used in build-jvm.sh
 ARG VERBOSE
