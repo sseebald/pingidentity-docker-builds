@@ -13,7 +13,7 @@ ARG SHIM_TAG
 #################################################################################
 
 FROM pingcommon-rebased:local as common
-FROM pingjvm-rebased:local as jvm
+FROM pingjvm-shim-rebased:local as jvm
 
 #################################################################################
 
