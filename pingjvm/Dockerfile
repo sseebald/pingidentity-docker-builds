@@ -8,6 +8,7 @@ FROM cgr.dev/chainguard/jdk:latest-dev as jvm-staging
 ARG VERBOSE
 ARG JVM_ID
 
+USER root
 COPY ["build-jvm.sh","/"]
 
 RUN ["/build-jvm.sh"]
