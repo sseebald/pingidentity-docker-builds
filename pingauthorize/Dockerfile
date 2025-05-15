@@ -47,10 +47,11 @@ COPY ["tmp/", "/tmp/"]
 
 # Download the product bits
 COPY --from=common ["/opt/get-product-bits.sh","/opt/get-product-bits.sh"]
+USER root
 RUN /opt/get-product-bits.sh --product ${PRODUCT} --version ${VERSION} \
     && unzip -q /tmp/product.zip -d /tmp/ \
     && mv /tmp/PingAuthorize /opt/server
-
+USER nonroot
 #################################################################################
 
 FROM cgr.dev/chainguard/wolfi-base:latest as final-staging
