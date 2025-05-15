@@ -82,7 +82,6 @@ COPY ["/opt","/opt"]
 COPY --from=product-staging ["/opt/server/legal/","/licenses/"]
 
 # Run build
-RUN ls -alh /opt
 RUN ["/opt/build.sh"]
 
 #################################################################################
