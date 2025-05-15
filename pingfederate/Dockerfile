@@ -82,8 +82,9 @@ COPY ["/opt","/opt"]
 COPY --from=product-staging ["/opt/server/legal/","/licenses/"]
 
 # Run build
+USER root
 RUN ["/opt/build.sh"]
-
+USER nonroot
 #################################################################################
 
 FROM pingbase-rebased:local as base
