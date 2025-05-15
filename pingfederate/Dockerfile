@@ -90,7 +90,7 @@ USER nonroot
 FROM pingbase-rebased:local as base
 
 # The final image
-FROM pingjvm-shim-rebased:local
+FROM cgr.dev/chainguard/jre:latest-dev
 
 # from pingbase
 ARG BASE
