@@ -538,6 +538,7 @@ COPY --from=base "/licenses/" "/licenses/"
 COPY --from=final-staging ["/opt","/opt"]
 COPY --from=final-staging ["/etc/motd","/etc/motd"]
 
+USER root
 RUN ["/opt/install_deps.sh"]
 
 # Switch to the default non-root user created in build.sh
