@@ -241,7 +241,7 @@ if test "${bits_download_url#*"${ARTIFACTORY_URL}"}" != "${bits_download_url}"; 
     echo "Verifying product bits ${bits_file_name} via SHA-256..."
     wget -T 20 -O "/tmp/${output_file}.sha256" "${bits_download_url}.sha256"
     test $? -ne 0 && echo "Error: Could not retrieve sha256 of artifact ${bits_file_name} from ${bits_download_url}.sha256" && exit 1
-    echo "$(cat "/tmp/${output_file}.sha256")  /tmp/${output_file}" | sha256sum -c -s -
+    echo "$(cat "/tmp/${output_file}.sha256")  /tmp/${output_file}" | sha256sum -c -
     test $? -ne 0 && echo "Error: The SHA-256 check failed for the downloaded artifact ${bits_file_name} from ${bits_download_url}." && exit 1
     rm "/tmp/${output_file}.sha256"
     echo "Successfully verified artifact ${bits_file_name}."
@@ -285,7 +285,7 @@ elif test "${product_name}" = "tini"; then
     echo "Verifying Tini product bits ${bits_file_name}..."
     wget -T 20 -O "/tmp/${output_file}.sha256sum" "${bits_download_url}.sha256sum"
     test $? -ne 0 && echo "Error: Could not retrieve sha256 of artifact ${bits_file_name} from ${bits_download_url}.sha256sum" && exit 1
-    echo "$(awk 'FNR == 1 {print $1}' "/tmp/${output_file}.sha256sum")  /tmp/${output_file}" | sha256sum -c -s -
+    echo "$(awk 'FNR == 1 {print $1}' "/tmp/${output_file}.sha256sum")  /tmp/${output_file}" | sha256sum -c -
     test $? -ne 0 && echo "Error: The SHA-256 check failed for the artifact ${bits_file_name} from ${bits_download_url}." && exit 1
     rm "/tmp/${output_file}.sha256sum"
 
