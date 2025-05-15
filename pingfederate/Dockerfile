@@ -54,7 +54,7 @@ RUN /opt/get-product-bits.sh --product ${PRODUCT} --version ${VERSION} \
         -x *.exe \
     && mv /tmp/${PRODUCT}-*/${PRODUCT} /opt/server \
     && mkdir -p /opt/out/instance/server/default/data
-
+USER nonroot
 #################################################################################
 
 FROM pingjvm-shim-rebased:local as final-staging
