@@ -44,6 +44,7 @@ COPY ["tmp/", "/tmp/"]
 # Download the product bits
 # TODO Remove the `-x` options in the unzip commands after PF 11.2 GA and use of min zip files.
 COPY --from=common ["/opt/get-product-bits.sh","/opt/get-product-bits.sh"]
+USER root
 RUN /opt/get-product-bits.sh --product ${PRODUCT} --version ${VERSION} \
     && unzip -q /tmp/product.zip -d /tmp/ \
         -x */pingfederate-service-installer.jar \
