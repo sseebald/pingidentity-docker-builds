@@ -29,6 +29,7 @@ RUN apk --no-cache --update add gpg wget gpg-agent
 COPY ["key.gpg", "/tmp"]
 
 # Download the product bits
+COPY ["/opt/build.sh", "/opt/build.sh"]
 COPY ["/opt/get-product-bits.sh","/opt/get-product-bits.sh"]
 RUN /opt/get-product-bits.sh --product ${PRODUCT} --version ${VERSION} \
     && mv "/tmp/product.zip" "/opt/tini" \
@@ -39,4 +40,4 @@ RUN /opt/get-product-bits.sh --product ${PRODUCT} --version ${VERSION} \
 # The final image
 FROM scratch
 COPY --from=product-staging ["/opt","/opt"]
-COPY ["opt/","/opt/"]
+COPY ["/opt/","/opt/"]

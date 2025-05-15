@@ -80,7 +80,7 @@ COPY ["/opt","/opt"]
 
 # add legal information in licenses directory
 COPY --from=product-staging ["/opt/server/legal/","/licenses/"]
-COPY --from=common ["/opt/build.sh", "/opt/build.sh"]
+
 # Run build
 RUN ls -alh /opt
 RUN ["/opt/build.sh"]
