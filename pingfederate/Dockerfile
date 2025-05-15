@@ -44,7 +44,6 @@ COPY ["tmp/", "/tmp/"]
 # Download the product bits
 # TODO Remove the `-x` options in the unzip commands after PF 11.2 GA and use of min zip files.
 COPY --from=common ["/opt/get-product-bits.sh","/opt/get-product-bits.sh"]
-COPY --from=common ["/opt/build.sh", "/opt/build.sh"]
 USER root
 RUN /opt/get-product-bits.sh --product ${PRODUCT} --version ${VERSION} \
     && unzip -q /tmp/product.zip -d /tmp/ \
@@ -81,7 +80,7 @@ COPY ["/opt","/opt"]
 
 # add legal information in licenses directory
 COPY --from=product-staging ["/opt/server/legal/","/licenses/"]
-
+COPY --from=common ["/opt/build.sh", "/opt/build.sh"]
 # Run build
 RUN ["/opt/build.sh"]
 
