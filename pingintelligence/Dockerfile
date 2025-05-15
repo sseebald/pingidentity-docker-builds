@@ -75,7 +75,7 @@ RUN ["/opt/build.sh"]
 #################################################################################
 
 # The final image
-FROM pingbase:${GIT_TAG}-${ARCH}
+FROM pingbase-rebased:local
 # Image version and git revision, set by build process of the docker build
 ARG IMAGE_VERSION="undefined"
 ARG IMAGE_GIT_REV=""

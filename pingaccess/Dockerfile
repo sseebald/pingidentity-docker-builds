@@ -85,7 +85,7 @@ RUN ["/opt/build.sh"]
 
 #################################################################################
 
-FROM pingbase:${GIT_TAG}-${ARCH} as base
+FROM pingbase-rebased:local as base
 
 # the final image
 FROM pingjvm-shim-rebased:local
