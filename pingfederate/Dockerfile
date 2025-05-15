@@ -57,7 +57,7 @@ RUN /opt/get-product-bits.sh --product ${PRODUCT} --version ${VERSION} \
 USER nonroot
 #################################################################################
 
-FROM pingjvm-shim-rebased:local as final-staging
+FROM cgr.dev/chainguard/jre:latest-dev as final-staging
 
 # On PF 12.2 and later, use the run.sh packaged with the product,
 # else use the custom run.sh file
