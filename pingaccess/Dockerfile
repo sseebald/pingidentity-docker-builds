@@ -57,7 +57,7 @@ RUN /opt/get-product-bits.sh --product ${PRODUCT} --version ${VERSION} \
 
 #################################################################################
 
-FROM ${DEPS}${SHIM} as final-staging
+FROM pingjvm-shim-rebased:local as final-staging
 
 # On PA 8.2 and later, need to use an updated run.sh file with extra CLASSPATH handling.
 # TODO remove after deprecation of 8.1.x PA versions
@@ -88,7 +88,7 @@ RUN ["/opt/build.sh"]
 FROM pingbase:${GIT_TAG}-${ARCH} as base
 
 # the final image
-FROM ${DEPS}${SHIM}
+FROM pingjvm-shim-rebased:local
 # Image version and git revision, set by build process of the docker build
 ARG IMAGE_VERSION="undefined"
 ARG IMAGE_GIT_REV=""

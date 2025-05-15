@@ -30,7 +30,7 @@ FROM pingjvm-shim-rebased:local as jvm
 
 #################################################################################
 
-FROM ${DEPS}${SHIM} as final-staging
+FROM pingjvm-shim-rebased:local as final-staging
 
 # get Ping-wide common scripts
 COPY --from=common ["/opt/","/opt/"]

@@ -56,7 +56,7 @@ RUN /opt/get-product-bits.sh --product ${PRODUCT} --version ${VERSION} \
 
 #################################################################################
 
-FROM ${DEPS}${SHIM} as final-staging
+FROM pingjvm-shim-rebased:local as final-staging
 
 # On PF 12.2 and later, use the run.sh packaged with the product,
 # else use the custom run.sh file
@@ -85,10 +85,10 @@ RUN ["/opt/build.sh"]
 
 #################################################################################
 
-FROM pingbase:${GIT_TAG}-${ARCH} as base
+FROM pingbase-rebased:local as base
 
 # The final image
-FROM ${DEPS}${SHIM}
+FROM pingfederate-rebased:local
 
 # from pingbase
 ARG BASE
