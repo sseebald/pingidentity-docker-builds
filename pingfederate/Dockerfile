@@ -65,7 +65,7 @@ FROM pingjvm-shim-rebased:local as final-staging
 ARG VERSION
 
 # get the product bits FIRST
-COPY --from=product-staging ["/opt/","/opt/"]
+#COPY --from=product-staging ["/opt/","/opt/"]
 
 # get Ping-wide common scripts
 #   this needs to happen after the bits have been laid down
