@@ -88,7 +88,7 @@ RUN ["/opt/build.sh"]
 FROM pingbase-rebased:local as base
 
 # The final image
-FROM pingfederate-rebased:local
+FROM pingjvm-shim-rebased:local
 
 # from pingbase
 ARG BASE
