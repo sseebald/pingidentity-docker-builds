@@ -27,7 +27,7 @@ FROM pingjvm-shim-rebased:local as jvm
 #################################################################################
 
 # Always use alpine to download product bits
-FROM cgr.dev/chainguard/jre:latest-dev as product-staging
+FROM cgr.dev/chainguard/wolfi-base:latest as product-staging
 
 # ARGS used in get-product-bits.sh RUN command
 ARG ARTIFACTORY_URL
@@ -39,7 +39,7 @@ ARG VERBOSE
 ARG VERSION
 
 # Get gnupg and libxml2-utils for get-product-bits.sh
-RUN apk --no-cache --update add gnupg libxml2-utils
+RUN apk --no-cache --update add gpg libxml2-utils
 
 # Get public signing keys for Apache Tomcat
 COPY ["keys.gpg", "/tmp"]
@@ -83,7 +83,7 @@ RUN /opt/get-product-bits.sh --product ${PRODUCT} --version ${VERSION} \
 
 #################################################################################
 
-FROM pingjvm-shim-rebased:local as final-staging
+FROM cgr.dev/chainguard/wolfi-base:latest as final-staging
 
 # get the product bits FIRST
 COPY --from=product-staging ["/opt/","/opt/"]
