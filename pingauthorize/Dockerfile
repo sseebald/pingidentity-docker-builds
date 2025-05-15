@@ -30,7 +30,7 @@ FROM pingjvm-shim-rebased:local as jvm
 #################################################################################
 
 # Always use alpine to download product bits
-FROM cgr.dev/chainguard/jre:latest-dev as product-staging
+FROM cgr.dev/chainguard/wolfi-base:latest as product-staging
 
 # ARGS used in get-product-bits.sh RUN command
 ARG ARTIFACTORY_URL
