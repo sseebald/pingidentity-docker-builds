@@ -88,7 +88,7 @@ RUN ["/opt/build.sh"]
 FROM pingbase-rebased:local as base
 
 # the final image
-FROM pingjvm-shim-rebased:local
+FROM cgr.dev/chainguard/wolfi-base:latest
 # Image version and git revision, set by build process of the docker build
 ARG IMAGE_VERSION="undefined"
 ARG IMAGE_GIT_REV=""
