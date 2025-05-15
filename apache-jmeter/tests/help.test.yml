@@ -1,7 +1,7 @@
 version: "2"
 services:
   sut:
-    image: ${REGISTRY}/apache-jmeter:${TAG}
+    image: apache-jmeter:${TAG}
     environment:
       - VERBOSE=true
       - STARTUP_FOREGROUND_OPTS=--help

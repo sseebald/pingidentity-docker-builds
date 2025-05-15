@@ -18,7 +18,7 @@ ARG ARCH
 #################################################################################
 
 # The final image
-FROM ${REGISTRY}/pingcommon-rebased:local
+FROM pingcommon-rebased:local
 COPY [ "/opt/","/opt/"]
 
 #-- Flag to force a run of dsjavaproperties --initialize. When this is false,

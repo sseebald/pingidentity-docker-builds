@@ -25,8 +25,8 @@ ARG SHIM_TAG
 
 #################################################################################
 
-FROM ${REGISTRY}/pingcommon-rebased:local as common
-FROM ${REGISTRY}/pingjvm-rebased:local as jvm
+FROM pingcommon-rebased:local as common
+FROM pingjvm-rebased:local as jvm
 
 #################################################################################
 
@@ -47,7 +47,7 @@ RUN ["/opt/build.sh"]
 #################################################################################
 
 # The final image
-FROM ${REGISTRY}/pingbase:${GIT_TAG}-${ARCH}
+FROM pingbase:${GIT_TAG}-${ARCH}
 # Image version and git revision, set by build process of the docker build
 ARG IMAGE_VERSION="undefined"
 ARG IMAGE_GIT_REV=""

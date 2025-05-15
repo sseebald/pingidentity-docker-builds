@@ -23,7 +23,7 @@ ARG SHIM_TAG
 
 #################################################################################
 
-FROM ${REGISTRY}/pingcommon-rebased:local as common
+FROM pingcommon-rebased:local as common
 
 #################################################################################
 
@@ -72,7 +72,7 @@ RUN ["/opt/build.sh"]
 #################################################################################
 
 # The final image
-FROM ${REGISTRY}/pingbase:${GIT_TAG}-${ARCH}
+FROM pingbase:${GIT_TAG}-${ARCH}
 COPY --from=final-staging ["/","/"]
 
 # Image version and git revision, set by build process of the docker build

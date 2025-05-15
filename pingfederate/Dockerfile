@@ -23,8 +23,8 @@ ARG SHIM_TAG
 
 #################################################################################
 
-FROM ${REGISTRY}/pingcommon-rebased:local as common
-FROM ${REGISTRY}/pingjvm-rebased:local as jvm
+FROM pingcommon-rebased:local as common
+FROM pingjvm-rebased:local as jvm
 
 #################################################################################
 
@@ -85,7 +85,7 @@ RUN ["/opt/build.sh"]
 
 #################################################################################
 
-FROM ${REGISTRY}/pingbase:${GIT_TAG}-${ARCH} as base
+FROM pingbase:${GIT_TAG}-${ARCH} as base
 
 # The final image
 FROM ${DEPS}${SHIM}

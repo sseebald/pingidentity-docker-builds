@@ -1,7 +1,7 @@
 version: "2.4"
 services:
   sut:
-    image: ${REGISTRY}/pingintelligence:${TAG}
+    image: pingintelligence:${TAG}
     environment:
       - PING_IDENTITY_DEVOPS_USER=${PING_IDENTITY_DEVOPS_USER}
       - PING_IDENTITY_DEVOPS_KEY=${PING_IDENTITY_DEVOPS_KEY}
