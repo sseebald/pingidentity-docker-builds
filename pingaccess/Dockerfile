@@ -392,6 +392,7 @@ COPY --from=final-staging ["/opt","/opt"]
 COPY --from=final-staging ["/etc/motd","/etc/motd"]
 
 # RUN ["/opt/build.sh"]
+COPY --from=common ["/opt/install_deps.sh","/opt/install_deps.sh"]
 RUN ["/opt/install_deps.sh"]
 
 # Switch to the default non-root user created in build.sh
