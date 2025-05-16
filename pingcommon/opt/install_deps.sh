@@ -34,17 +34,19 @@ case "${_osID}" in
         adduser --uid 9031 --ingroup root --disabled-password --shell /bin/false ping
         ;;
     wolfi)
-        # Packages in Wolfi are similar to Alpine but sourced from Wolfi's catalog
-        apk --no-cache --update add git git-lfs curl ca-certificates zip libintl openssh-client
+        apk --no-cache --update add git git-lfs curl ca-certificates zip openssh-client
+
         apk --no-cache --update add gettext
+        mkdir -p /usr/local/bin
         cp /usr/bin/envsubst /usr/local/bin/envsubst
         apk --no-cache --update del gettext
+
         apk --no-cache add oniguruma jq
         cp /usr/bin/jq /usr/local/bin/jq
         apk --no-cache del jq
+
         apk --no-cache --update add fontconfig ttf-dejavu shadow
 
-        # Some Wolfi images might not have /etc/group or /etc/passwd — shadow provides tools
         groupadd -g 0 root || true
         useradd -u 9031 -g root -s /bin/false ping || true
         ;;
