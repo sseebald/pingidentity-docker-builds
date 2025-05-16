@@ -391,6 +391,7 @@ EXPOSE ${PA_ADMIN_PORT} ${PA_ENGINE_PORT} ${HTTPS_PORT}
 COPY --from=final-staging ["/opt","/opt"]
 COPY --from=final-staging ["/etc/motd","/etc/motd"]
 
+USER root
 # RUN ["/opt/build.sh"]
 COPY --from=common ["/opt/install_deps.sh","/opt/install_deps.sh"]
 RUN ["/opt/install_deps.sh"]
