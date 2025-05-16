@@ -23,7 +23,7 @@ ARG VERBOSE
 ARG VERSION=0.19.0
 
 # Get gnupg for get-product-bits.sh
-RUN apk --no-cache --update add gpg wget gpg-agent
+RUN apk --no-cache --update add gpg wget gpg-agent git
 
 # Get public signing keys for Tini
 COPY ["key.gpg", "/tmp"]
