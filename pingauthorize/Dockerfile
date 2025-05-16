@@ -40,7 +40,7 @@ ARG VERBOSE
 ARG VERSION
 
 # Get libxml2-utils for get-product-bits.sh
-RUN apk --no-cache --update add libxml2-utils wget
+RUN apk --no-cache --update add libxml2-utils wget git
 
 # Get local filesystem product bits if present
 COPY ["tmp/", "/tmp/"]
